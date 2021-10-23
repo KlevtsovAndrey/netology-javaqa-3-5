@@ -1,7 +1,7 @@
 package domain;
 
 public class Smartphone extends Product {
-    private String Brand;
+    private String brand;
 
     public Smartphone() {
         super();
@@ -9,14 +9,14 @@ public class Smartphone extends Product {
 
     public Smartphone(String name, int id, int price, String brand) {
         super(name, id, price);
-        Brand = brand;
+        this.brand = brand;
     }
 
     public String getBrand() {
-        return Brand;
+        return brand;
     }
 
     public void setBrand(String brand) {
-        Brand = brand;
+        this.brand = brand;
     }
 }
