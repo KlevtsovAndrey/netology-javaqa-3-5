@@ -23,13 +23,13 @@ class ProductManagerTest {
 
     @BeforeEach
     public void setUp() {
-        repository.save(book1);
-        repository.save(book2);
-        repository.save(smartphone1);
-        repository.save(book3);
+        manager.add(book1);
+        manager.add(book2);
+        manager.add(smartphone1);
+        manager.add(book3);
         manager.add(macbook);
-        repository.save(smartphone2);
-        repository.save(smartphone3);
+        manager.add(smartphone2);
+        manager.add(smartphone3);
     }
 
     @Test
@@ -57,6 +57,13 @@ class ProductManagerTest {
     public void shouldFindSmartphoneByName() {
         Product[] actual = manager.searchBy("iPhone 13 Pro");
         Product[] expected = new Product[]{smartphone3};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldNotFindSmartphoneByName() {
+        Product[] actual = manager.searchBy("iPhone 10");
+        Product[] expected = new Product[0];
         assertArrayEquals(expected, actual);
     }
 }
